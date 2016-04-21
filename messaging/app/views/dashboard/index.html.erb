@@ -1,0 +1,2 @@
+<%= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true).
+render(File.read(Rails.root.join("README.md"))).html_safe %>

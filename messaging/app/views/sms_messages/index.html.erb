@@ -1,0 +1,32 @@
+<%- model_class = SmsMessage -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:user) %></th>
+      <th><%= model_class.human_attribute_name(:message_sid) %></th>
+      <th><%= model_class.human_attribute_name(:from_number) %></th>
+      <th><%= model_class.human_attribute_name(:to_number) %></th>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:outbound) %></th>
+      <th><%= model_class.human_attribute_name(:unread) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sms_messages.each do |sms_message| %>
+      <tr>
+        <td><%= sms_message.user.name %></td>
+        <td><%= sms_message.message_sid %></td>
+        <td><%= sms_message.from_number %></td>
+        <td><%= sms_message.to_number %></td>
+        <td><%= sms_message.body %></td>
+        <td><%= sms_message.outbound %></td>
+        <td><%= sms_message.unread %></td>
+        <td><%=l sms_message.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
