@@ -1,0 +1,30 @@
+<h1>Public Money Transfers</h1>
+
+<div class="money_transfers">
+  <table class="money_transfers__table">
+    <thead>
+      <tr>
+        <!-- TODO: should be sortable -->
+        <td>Sender</td>
+        <td>Receiver</td>
+        <td>Amount</td>
+        <td>Date</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @money_transfers.each do |transfer| %>
+        <tr>
+          <td><%= link_to transfer.sender.email, user_path(transfer.sender.id) %></td>
+          <td><%= link_to transfer.receiver.email, user_path(transfer.receiver.id) %></td>
+          <td><%= transfer.amount %></td>
+          <td><%= transfer.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </tbody>
+  </table>
+</div>
+
+<% if current_user %>
+  <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+<% end %>
