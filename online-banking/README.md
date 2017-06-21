@@ -28,8 +28,11 @@ $ rails s
         - User A won't be able to see User B’s private transfers
 - Others
     - Add validations/indexing as you see fit (possibly critical)
+    - Write spec with RSpec (we encourage TDD)
     - Expect thousands of requests / sec
     - Feel free to use sidekiq, redis, elastic-search if you think they are necessary
+    - We encourage smaller Ruby methods and classes
+    - Use Ruby's class inheritance and module mixins as you see fit
 
 ### How to submit
 
